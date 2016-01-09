@@ -2,20 +2,32 @@
   <ion-content>
     <ion-list>
       <form ng-submit="button(product)">
-        <label class="item item-input">
+        <div class="row">
+          
+          <div class="col col-33">
+          <input style="height: 140px; width: 140px;" ng-src="{{imgURI}}">
+          </div>
+
+          <div class="col col-50 col-offset-10">
+          <label class="item item-input inputUpload">
           <input type="text" ng-model="product.name" placeholder="Product Name">
-        </label>
-        <label class="item item-input">
+          </label>
+           <label class="item item-input inputUploadTop">
           <input type="text" ng-model="product.tagline" placeholder="Tagline">
-        </label>
-        <label class="item item-input">
+          </label>
+          <label class="item item-input inputUploadTop">
+          <input type="text" ng-model="product.price"placeholder="Price">
+          </label>
+          </div>
+
+        </div>
+        
+       
+        <label class="item item-input inputUploadTop">
           <input type="text" ng-model="product.description" placeholder="Description">
         </label>
-        <label class="item item-input">
-          <input type="text" ng-model="product.price"placeholder="Price">
-        </label>
-        <input style="height: 200px; width: 200px;"src="../img/manet.jpg">
-
+       
+        
         <br/>
         <button type="submit" class="button button-block button-balanced">
           Submit
