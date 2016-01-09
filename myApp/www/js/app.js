@@ -5,7 +5,11 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'starter.services'])
+var app = angular.module('starter', [
+  'ionic', 
+  'firebase',
+  'ngCordova'
+  ])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -32,6 +36,12 @@ angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'starter.
   // Each state's controller can be found in controllers.js
   $stateProvider
 
+    .state('login', {
+      url: '/login',
+      templateUrl: 'templates/login.html',
+      controller: 'LoginCtrl'
+    })
+
   // setup an abstract state for the tabs directive
     .state('tab', {
     url: '/tab',
@@ -50,6 +60,26 @@ angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'starter.
       }
     }
   })
+
+  .state('tab.photo-detail', {
+      url: '/photo/detail',
+      views: {
+        'tab-photo': {
+          templateUrl: 'templates/photo-detail.html',
+          controller: 'PhotoDetailCtrl'
+        }
+      }
+    })
+
+  .state('tab.photo', {
+      url: '/photo',
+      views: {
+        'tab-photo': {
+          templateUrl: 'templates/tab-photo.html',
+          controller: 'PhotoCtrl'
+        }
+      }
+    })
 
   .state('tab.chats', {
       url: '/chats',
